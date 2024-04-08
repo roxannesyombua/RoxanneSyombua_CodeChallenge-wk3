@@ -1,10 +1,10 @@
 // Your code here
 document.addEventListener("DOMContentLoaded", function() {
-    const baseUrl = 'http://localhost:3000';
+    const dataBase = 'http://localhost:3000';
 
     // Function to fetch movie details by ID
     function fetchMovieDetails(movieId) {
-        fetch(`${baseUrl}/films/${movieId}`)
+        fetch(`${dataBase}/films/${movieId}`)
             .then(response => response.json())
             .then(data => {
                 // Populate movie details on the page
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     // Only proceed if tickets are available
                     if (availableTickets > 0) {
                         // Update tickets sold count on the server
-                        fetch(`${baseUrl}/films/${data.id}`, {
+                        fetch(`${dataBase}/films/${data.id}`, {
                             method: 'PATCH',
                             headers: {
                                 'Content-Type': 'application/json'
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to fetch all movies
     function fetchAllMovies() {
-        fetch(`${baseUrl}/films`)
+        fetch(`${dataBase}/films`)
             .then(response => response.json())
             .then(data => {
                 // Populate movie menu
